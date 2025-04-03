@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sınav</title>
+</head>
+<body>
+    <h1>Sınav Soruları</h1>
+    <form method="POST">
+        {% for question in questions %}
+            <div>
+                <p>{{ question.question_text }}</p>
+                <input type="radio" name="question_{{ question.id }}" value="{{ question.option_1 }}" required>{{ question.option_1 }}<br>
+                <input type="radio" name="question_{{ question.id }}" value="{{ question.option_2 }}">{{ question.option_2 }}<br>
+                <input type="radio" name="question_{{ question.id }}" value="{{ question.option_3 }}">{{ question.option_3 }}<br>
+                <input type="radio" name="question_{{ question.id }}" value="{{ question.option_4 }}">{{ question.option_4 }}<br>
+            </div>
+        {% endfor %}
+ <br><input type="text" name="username" placeholder="Bitirdiğinize Emin Misiniz ? " required><br>
+        <button type="submit">Gönder</button>
+    </form>
+<footer>
+    <p>Buse Kılıç Tarafından Geliştirildi </p>
+</footer>
+</body>
+</html>
